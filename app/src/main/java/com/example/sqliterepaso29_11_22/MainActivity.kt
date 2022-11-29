@@ -48,4 +48,10 @@ class MainActivity : AppCompatActivity() {
             binding.tvInfo.visibility = View.VISIBLE
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        setLista()
+        setRecycler()
+    }
 }
