@@ -12,10 +12,21 @@ class BaseDatos(c: Context): SQLiteOpenHelper(c, DB, null, VERSION) {
     }
 
     override fun onCreate(p0: SQLiteDatabase?) {
-        TODO("Not yet implemented")
+        val q = "CREATE TABLE $TABLA(" +
+                "id integer primary key autoincrement, " +
+                "nombre text not null unique, " +
+                "dificultad text not null)"
+
+        p0?.execSQL(q);
+
     }
 
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
-        TODO("Not yet implemented")
+        //Borrar antigua tabla y recrearla
+    }
+
+    //Metodos para gestionar la base de datos (CRUD)
+    fun create() {
+
     }
 }
