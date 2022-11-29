@@ -1,4 +1,4 @@
-package com.example.sqliterepaso29_11_22.modelos
+package com.example.sqliterepaso29_11_22
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
