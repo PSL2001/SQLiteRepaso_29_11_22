@@ -63,4 +63,11 @@ class BaseDatos(c: Context): SQLiteOpenHelper(c, DB, null, VERSION) {
         con.close()
         return lista
     }
+
+    fun borrar(id: Int) {
+        val con = this.writableDatabase
+        val q = "delete from $TABLA where id = id"
+        con.execSQL(q)
+        con.close()
+    }
 }

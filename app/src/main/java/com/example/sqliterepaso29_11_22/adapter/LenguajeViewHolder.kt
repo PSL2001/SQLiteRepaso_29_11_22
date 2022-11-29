@@ -8,8 +8,11 @@ import com.example.sqliterepaso29_11_22.modelos.Lenguajes
 class LenguajeViewHolder(v: View): RecyclerView.ViewHolder(v) {
     val binding = LayoutLenguajesBinding.bind(v)
 
-    fun render(lenguaje: Lenguajes) {
+    fun render(lenguaje: Lenguajes, onItemDelete: (Int) -> Unit) {
         binding.tvNombre.text = lenguaje.nombre
         binding.tvDif.text = lenguaje.dificultad
+        binding.btnDelete.setOnClickListener {
+            onItemDelete(adapterPosition)
+        }
     }
 }

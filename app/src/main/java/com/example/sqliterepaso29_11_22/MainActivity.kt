@@ -36,8 +36,16 @@ class MainActivity : AppCompatActivity() {
     private fun setRecycler() {
         var layoutManager = LinearLayoutManager(this)
         binding.recView.layoutManager = layoutManager
-        adapter = LenguajeAdapter(lista)
+        adapter = LenguajeAdapter(lista) { onDelete(it) }
         binding.recView.adapter = adapter
+    }
+
+    fun onDelete(position: Int) {
+        val id = lista[position].id as Int
+        con.borrar(id)
+        lista.removeAt(position)
+        adapter.notifyItemRemoved(position)
+        setLista()
     }
 
     private fun setLista() {
