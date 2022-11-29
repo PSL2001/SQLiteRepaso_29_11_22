@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SQLiteRepaso29_11_22</string>
+    <string-array name="dificultad">
+        <item>Básico</item>
+        <item>Fácil</item>
+        <item>Normal</item>
+        <item>Dificil</item>
+    </string-array>
 </resources>
