@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sqliterepaso29_11_22.adapter.LenguajeAdapter
 import com.example.sqliterepaso29_11_22.basededatos.BaseDatos
@@ -36,8 +37,12 @@ class MainActivity : AppCompatActivity() {
     private fun setRecycler() {
         var layoutManager = LinearLayoutManager(this)
         binding.recView.layoutManager = layoutManager
-        adapter = LenguajeAdapter(lista) { onDelete(it) }
+        adapter = LenguajeAdapter(lista, {positionItem -> onDelete(positionItem) }) {lenguaje -> onInfo(lenguaje) }
         binding.recView.adapter = adapter
+    }
+
+    private fun onInfo(Lenguaje: Lenguajes) {
+        Toast.makeText(this, Lenguaje.toString(), Toast.LENGTH_SHORT).show()
     }
 
     fun onDelete(position: Int) {

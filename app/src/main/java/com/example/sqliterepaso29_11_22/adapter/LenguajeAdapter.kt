@@ -6,7 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sqliterepaso29_11_22.R
 import com.example.sqliterepaso29_11_22.modelos.Lenguajes
 
-class LenguajeAdapter(private var lista: MutableList<Lenguajes>, val onItemDelete: (Int) -> Unit): RecyclerView.Adapter<LenguajeViewHolder>() {
+class LenguajeAdapter(
+    private var lista: MutableList<Lenguajes>,
+    val onItemDelete: (Int) -> Unit,
+    val onInfo: (Lenguajes) -> Unit
+): RecyclerView.Adapter<LenguajeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LenguajeViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.layout_lenguajes, parent, false)
         return LenguajeViewHolder(v)
@@ -14,7 +18,7 @@ class LenguajeAdapter(private var lista: MutableList<Lenguajes>, val onItemDelet
 
     override fun onBindViewHolder(holder: LenguajeViewHolder, position: Int) {
         val lenguaje = lista[position]
-        holder.render(lenguaje, onItemDelete)
+        holder.render(lenguaje, onItemDelete, onInfo)
     }
 
     override fun getItemCount(): Int {
